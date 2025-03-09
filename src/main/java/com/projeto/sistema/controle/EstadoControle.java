@@ -4,7 +4,9 @@ import com.projeto.sistema.modelos.Estado;
 import com.projeto.sistema.repositorios.EstadoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,5 +20,12 @@ public class EstadoControle {
         mv.addObject("estado", estado);
         return mv;
     }
-
+    @PostMapping("/salvarEstado") //Quando chamarmos, os dados estarão ocultos
+    public ModelAndView salvar(Estado estado, BindingResult result) {
+        if(result.hasErrors()){
+            return cadastrar(estado);
+        }
+        estadoRepositorio.saveAndFlush(estado);//'savaAndFlush' - Função do JPA
+        return cadastrar(new Estado());
+    }
 }

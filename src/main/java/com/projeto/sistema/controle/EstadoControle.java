@@ -12,7 +12,7 @@ public class EstadoControle {
     @Autowired
     private EstadoRepositorio estadoRepositorio;
 
-    @GetMapping("/cadstroEstado")
+    @GetMapping("/cadastroEstado")
     public ModelAndView cadastrar(Estado estado) {//Será responsável por gerar nossa visualização
         ModelAndView mv = new ModelAndView("administrativo/estados/cadastro");//caminho de pasta.
         mv.addObject("estado", estado);

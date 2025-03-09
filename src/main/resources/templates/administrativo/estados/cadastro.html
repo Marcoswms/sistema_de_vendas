@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/salvarEstado" th:object="S{estado}" method="POST"><!--Conexão direta com a Entidade 'Estado'.-->
+<form action="/salvarEstado" th:object="${estado}" method="POST"><!--Conexão direta com a Entidade 'Estado'.-->
     <label>Nome do Estado</label>
     <input type="text" th:field="*{nome}"/>
     <label>Sigla do Estado</label>

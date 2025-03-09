@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="https://thymeleaf.org"
+        xmlns:layout="https://www.ultraq.net.nz/thymeleaf/Layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/salvarEstado" th:object="S{estado}" method="POST"><!--Conexão direta com a Entidade 'Estado'.-->
+    <label>Nome do Estado</label>
+    <input type="text" th:field="*{nome}"/>
+    <label>Sigla do Estado</label>
+    <input type="text" th:field="*{sigla}"/>
+
+    <input type="hidden" th:field="*{id}"/>
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

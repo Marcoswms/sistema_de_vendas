@@ -8,6 +8,6 @@ public class PrincipalControle {
 
     @GetMapping("/administrativo")
     public String acessarPrincipal() {
-        return "administrativo/home"; //Caminho de pastas
+        return "administrativo/home";
     }
 }
